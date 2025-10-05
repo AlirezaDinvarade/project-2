@@ -1,2 +1,4 @@
+github.com/confluentinc/confluent-kafka-go/v2 v2.11.1 h1:qGCQznyp2BxyBNyOE+M7O1YS2tI1/Y60O0jQP452zA4=
+github.com/confluentinc/confluent-kafka-go/v2 v2.11.1/go.mod h1:hScqtFIGUI1wqHIgM3mjoqEou4VweGGGX7dMpcUKves=
 github.com/gorilla/websocket v1.5.3 h1:saDtZ6Pbx/0u+bgYQ3q96pZgCzfhKXGPqt7kZ72aNNg=
 github.com/gorilla/websocket v1.5.3/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
