@@ -42,7 +42,7 @@ func (c *KafkaConsumer) readMessageLoop() {
 	for c.isRunning {
 		msg, err := c.consumer.ReadMessage(-1)
 		if err != nil {
-			logrus.Errorf("Kafka consume error %s ", err)
+			logrus.Errorf("Kafka consume error %s", err)
 			continue
 		}
 		var data types.OBUData
@@ -55,6 +55,6 @@ func (c *KafkaConsumer) readMessageLoop() {
 			logrus.Errorf("calculation error  %s ", err)
 			continue
 		}
-		fmt.Println("distance %.2f\n", distance)
+		_ = distance
 	}
 }
