@@ -17,7 +17,6 @@ func main() {
 	}
 	http.HandleFunc("/ws", receiver.HandleWS)
 	http.ListenAndServe(":3000", nil)
-	fmt.Println("data receiver work fine ")
 }
 
 type DataReceiver struct {

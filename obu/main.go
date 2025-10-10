@@ -20,7 +20,7 @@ func genCoords() float64 {
 	return n + f
 }
 
-func gerLocatin() (float64, float64) {
+func genLocatin() (float64, float64) {
 	return genCoords(), genCoords()
 }
 
@@ -32,7 +32,7 @@ func main() {
 	}
 	for {
 		for i := range obuIDS {
-			lat, lon := gerLocatin()
+			lat, lon := genLocatin()
 			data := types.OBUData{
 				OBUID: obuIDS[i],
 				Lat:   lat,
@@ -48,7 +48,7 @@ func main() {
 
 func generateOBUIDS(n int) []int {
 	ids := make([]int, n)
-	for i := range n {
+	for i := 0; i < n; i++ {
 		ids[i] = rand.Intn(math.MaxInt)
 	}
 	return ids
