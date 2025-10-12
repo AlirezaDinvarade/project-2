@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	types "tolling/Types"
+	types "tolling/types"
 
 	"github.com/confluentinc/confluent-kafka-go/v2/kafka"
 )

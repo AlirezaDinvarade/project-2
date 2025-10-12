@@ -2,7 +2,7 @@ package main
 
 import (
 	"time"
-	types "tolling/Types"
+	types "tolling/types"
 
 	"github.com/sirupsen/logrus"
 )
@@ -17,12 +17,11 @@ func NewLogMiddleware(next CalculatorServicer) CalculatorServicer {
 	}
 }
 
-
 func (m *LogMiddleware) CalculateDistance(data types.OBUData) (dist float64, err error) {
-	defer func (start time.Time)  {
+	defer func(start time.Time) {
 		logrus.WithFields(logrus.Fields{
-			"took":time.Since(start),
-			"err": err,
+			"took":     time.Since(start),
+			"err":      err,
 			"distance": dist,
 		}).Info("calculate distance")
 	}(time.Now())

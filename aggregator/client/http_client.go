@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	types "tolling/Types"
+	types "tolling/types"
 )
 
 type Client struct {

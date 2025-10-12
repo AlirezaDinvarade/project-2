@@ -3,8 +3,8 @@ package main
 import (
 	"encoding/json"
 	"time"
-	types "tolling/Types"
 	"tolling/aggregator/client"
+	types "tolling/types"
 
 	"github.com/confluentinc/confluent-kafka-go/v2/kafka"
 	"github.com/sirupsen/logrus"

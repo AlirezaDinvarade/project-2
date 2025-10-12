@@ -4,11 +4,10 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	types "tolling/Types"
+	types "tolling/types"
 
 	"github.com/gorilla/websocket"
 )
-
 
 func main() {
 	receiver, err := NewDataReceiver()

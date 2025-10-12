@@ -2,7 +2,7 @@ package main
 
 import (
 	"time"
-	types "tolling/Types"
+	types "tolling/types"
 
 	"github.com/sirupsen/logrus"
 )

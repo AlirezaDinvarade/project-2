@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	types "tolling/Types"
+	types "tolling/types"
 )
 
 const basePrice = 0.15
@@ -14,7 +14,7 @@ type Aggregator interface {
 
 type Storer interface {
 	Insert(types.Distance) error
-	Get(int) (float64,error)
+	Get(int) (float64, error)
 }
 
 type InvoiceAggregator struct {
@@ -38,9 +38,9 @@ func (i *InvoiceAggregator) CalculateInvoice(obuID int) (*types.Invoice, error) 
 		return nil, err
 	}
 	invoice := &types.Invoice{
-		OBUID: obuID,
-		TotalDistance: dist ,
-		TotalAmount: basePrice * dist,
+		OBUID:         obuID,
+		TotalDistance: dist,
+		TotalAmount:   basePrice * dist,
 	}
 	return invoice, nil
 }

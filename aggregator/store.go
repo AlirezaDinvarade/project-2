@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	types "tolling/Types"
+	types "tolling/types"
 )
 
 type MemoryStore struct {

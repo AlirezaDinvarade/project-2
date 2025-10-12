@@ -5,7 +5,7 @@ import (
 	"math"
 	"math/rand"
 	"time"
-	types "tolling/Types"
+	types "tolling/types"
 
 	"github.com/gorilla/websocket"
 )

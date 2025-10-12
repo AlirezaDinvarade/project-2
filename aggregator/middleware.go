@@ -2,7 +2,7 @@ package main
 
 import (
 	"time"
-	types "tolling/Types"
+	types "tolling/types"
 
 	"github.com/sirupsen/logrus"
 )
@@ -36,14 +36,14 @@ func (m *LogMiddleware) CalculateInvoice(obuID int) (inv *types.Invoice, err err
 		)
 		if inv != nil {
 			distance = inv.TotalDistance
-			amount  = inv.TotalAmount
+			amount = inv.TotalAmount
 		}
 		logrus.WithFields(logrus.Fields{
-			"took":  time.Since(start),
-			"error": err,
-			"obuID": obuID,
+			"took":          time.Since(start),
+			"error":         err,
+			"obuID":         obuID,
 			"totalDistance": distance,
-			"totalAmount": amount,
+			"totalAmount":   amount,
 		}).Info("CalculateInvoice")
 	}(time.Now())
 	inv, err = m.next.CalculateInvoice(obuID)

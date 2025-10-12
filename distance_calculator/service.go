@@ -2,7 +2,7 @@ package main
 
 import (
 	"math"
-	types "tolling/Types"
+	types "tolling/types"
 )
 
 type CalculatorServicer interface {
