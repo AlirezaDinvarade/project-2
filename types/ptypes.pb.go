@@ -59,7 +59,7 @@ func (*None) Descriptor() ([]byte, []int) {
 
 type AggregateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	OnuID         int32                  `protobuf:"varint,1,opt,name=OnuID,proto3" json:"OnuID,omitempty"`
+	OBUID         int32                  `protobuf:"varint,1,opt,name=OBUID,proto3" json:"OBUID,omitempty"`
 	Value         float64                `protobuf:"fixed64,2,opt,name=Value,proto3" json:"Value,omitempty"`
 	Unix          int64                  `protobuf:"varint,3,opt,name=Unix,proto3" json:"Unix,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -96,9 +96,9 @@ func (*AggregateRequest) Descriptor() ([]byte, []int) {
 	return file_types_ptypes_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *AggregateRequest) GetOnuID() int32 {
+func (x *AggregateRequest) GetOBUID() int32 {
 	if x != nil {
-		return x.OnuID
+		return x.OBUID
 	}
 	return 0
 }
@@ -124,7 +124,7 @@ const file_types_ptypes_proto_rawDesc = "" +
 	"\x12types/ptypes.proto\"\x06\n" +
 	"\x04None\"R\n" +
 	"\x10AggregateRequest\x12\x14\n" +
-	"\x05OnuID\x18\x01 \x01(\x05R\x05OnuID\x12\x14\n" +
+	"\x05OBUID\x18\x01 \x01(\x05R\x05OBUID\x12\x14\n" +
 	"\x05Value\x18\x02 \x01(\x01R\x05Value\x12\x12\n" +
 	"\x04Unix\x18\x03 \x01(\x03R\x04Unix23\n" +
 	"\n" +

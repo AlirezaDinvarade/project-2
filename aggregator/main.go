@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"log"
 	"net"
 	"net/http"
 	"strconv"
@@ -24,28 +25,27 @@ func main() {
 	)
 	svc = NewLogMiddleware(svc)
 	go makeGRPCTransport(*grpclistenAddress, svc)
-	makeHTTPTransport(*httplistenAddress, svc)
+	log.Fatal(makeHTTPTransport(*httplistenAddress, svc))
 }
 
-
-func makeGRPCTransport(listenAddress string, svc Aggregator) error{
+func makeGRPCTransport(listenAddress string, svc Aggregator) error {
 	fmt.Println("GRPC transport runnig on port ", listenAddress)
-	ln, err :=net.Listen("TCP", listenAddress)
+	ln, err := net.Listen("tcp", listenAddress)
 	if err != nil {
 		return err
 	}
 	defer ln.Close()
 	server := grpc.NewServer([]grpc.ServerOption{}...)
 	types.RegisterAggregatorServer(server, NewAggregatorGRPCServer(svc))
-	return  server.Serve(ln)
+	return server.Serve(ln)
 
 }
 
-func makeHTTPTransport(listenAddress string, svc Aggregator) {
+func makeHTTPTransport(listenAddress string, svc Aggregator) error {
 	fmt.Println("HTTP transport runnig on port ", listenAddress)
 	http.HandleFunc("/aggregate", handleAggregate(svc))
 	http.HandleFunc("/invoice", handleGetInvoice(svc))
-	http.ListenAndServe(listenAddress, nil)
+	return http.ListenAndServe(listenAddress, nil)
 }
 
 func handleGetInvoice(svc Aggregator) http.HandlerFunc {
@@ -68,6 +68,7 @@ func handleGetInvoice(svc Aggregator) http.HandlerFunc {
 		writeJSON(w, http.StatusOK, invoice)
 	}
 }
+
 func handleAggregate(svc Aggregator) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var distance types.Distance
