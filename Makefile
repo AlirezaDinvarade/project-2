@@ -1,4 +1,4 @@
-.PHONY: obu receiver calculator aggregator
+.PHONY: obu receiver calculator aggregator gateway
 
 obu:
 	@go build -o bin/obu ./obu/
@@ -18,3 +18,7 @@ aggregator:
 
 proto:
 	protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative types/ptypes.proto
+
+gateway:
+	@go build -o bin/gate ./gateway/
+	@./bin/gate
